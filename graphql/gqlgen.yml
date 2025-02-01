@@ -1,0 +1,8 @@
+schema: schema.graphql
+
+models:
+  Account:
+    model: github.com/zephyrus21/ggg-mc/graphql.Account
+    fields:
+      orders:
+        resolver: true
