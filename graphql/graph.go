@@ -2,19 +2,20 @@ package main
 
 import (
 	"github.com/99designs/gqlgen/graphql"
+	"github.com/zephyrus21/ggg-mc/account"
 )
 
 type Server struct {
-	// accountClient *account.Client
+	accountClient *account.Client
 	// catalogClient *catalog.Client
 	// orderClient   *order.Client
 }
 
 func NewGraphQLServer(accountURL, catalogURL, orderURL string) (*Server, error) {
-	// accountClient, err := account.NewClient(accountURL)
-	// if err != nil {
-	// 	return nil, err
-	// }
+	accountClient, err := account.NewClient(accountURL)
+	if err != nil {
+		return nil, err
+	}
 
 	// catalogClient, err := catalog.NewClient(catalogURL)
 	// if err != nil {
@@ -30,7 +31,7 @@ func NewGraphQLServer(accountURL, catalogURL, orderURL string) (*Server, error) 
 	// }
 
 	return &Server{
-		// accountClient: accountClient,
+		accountClient: accountClient,
 		// catalogClient: catalogClient,
 		// orderClient:   orderClient,
 	}, nil
